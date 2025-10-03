@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=4 uid="uid://1hr3pwauiqj5"]
+
+[ext_resource type="PackedScene" uid="uid://bisu4lpxn3fah" path="res://src/scenes/player.tscn" id="1_kkvs4"]
+[ext_resource type="Texture2D" uid="uid://bi3mrnjs5mo1l" path="res://src/sprites/tilemap.png" id="2_rr2wm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32aa5"]
+texture = ExtResource("2_rr2wm")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_5dlwx"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_32aa5")
+
+[node name="Scene" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [305.0]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-20, 59)
+tile_map_data = PackedByteArray("AAAOAAkAAAAAAAEAAAAOAAgAAAAAAAEAAAAPAAgAAAAAAAEAAAAPAAkAAAAAAAEAAAARAAoAAAAAAAEAAAASAAoAAAAAAAEAAAAMAAsAAAAAAAEAAAANAAsAAAAAAAEAAAAIAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAALAAwAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAAQAAoAAAABAAAAAAAQAAsAAAABAAAAAAAQAAwAAAABAAAAAAAJAAYAAAABAAAAAAAJAAsAAAABAAAAAAASAAYAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_5dlwx")
+use_kinematic_bodies = true
+physics_quadrant_size = 32
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_kkvs4")]
+physics_interpolation_mode = 1
+position = Vector2(363, 348)
+disable_mode = 1
+platform_wall_layers = 255
